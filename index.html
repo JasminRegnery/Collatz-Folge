@@ -1,0 +1,37 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Collatz-Folge</title>
+	<script>
+		function fCollatz() {
+			var vAusgabe = "";
+			var vn;
+			var vBerechnungen = 1;
+			
+			vn = parseFloat(document.getElementById("idn").value);
+			
+			vAusgabe = vAusgabe + vn;
+			
+			while (vn !== 1) {
+				if(vn % 2 == 0) {
+					vn = vn / 2;
+				} else {
+					vn = 3 * vn + 1;
+				}
+				
+				vAusgabe = vAusgabe + vn + ", ";
+				vBerechnungen++;
+			}
+			
+			vAusgabe = vAusgabe + "<br><br>Anzahl Berechnungen: " + vBerechnungen;
+			document.getElementById("idAusgabe").innerHTML=vAusgabe;
+		}
+	</script>
+</head>
+<body>
+	<h1>Collatz-Folge und das 3n+1 Problem ...</h1>
+	Collatz-Folge: <input id="idn" type="text" value="27">
+	<button onClick="fCollatz();">Collatz</button><br><br>
+	<div id="idAusgabe">Hier kommt die Collatz-Folge...</div>
+</body>
+</html>
